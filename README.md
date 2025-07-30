@@ -42,7 +42,8 @@ loadenv() { eval "$(lua /full/path/to/lenv/cli.lua "$@")"; }
 
 ## More Usage & Documentation
 
-See the full usage guide in [`docs/USAGE.md`](docs/USAGE.md) for advanced workflows, script generation, and more examples.
+See the full usage guide in [`docs/USAGE.md`](docs/USAGE.md) for advanced workflows, script generation, and more examples. <br>
+For the ldoc-generated API documentation, check out [`doc/index.html`](doc/index.html).
 
 ---
 
