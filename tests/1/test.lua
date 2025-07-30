@@ -1,4 +1,4 @@
-local env = require("src.lenv")
+local env = require("lenv")
 
 local loaded, err = env.load("./tests/1/.env")
 
