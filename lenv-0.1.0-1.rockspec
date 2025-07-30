@@ -1,12 +1,12 @@
 package = "lenv"
 version = "0.1.0-1"
 source = {
-   url = "git+https://github.com/yourname/lenv.git",
+   url = "git+https://github.com/APConduct/lenv.git",
    tag = "v0.1.0"
 }
 description = {
    summary = "Cross-platform .env file parser and loader for Lua",
-   homepage = "https://github.com/yourname/lenv",
+   homepage = "https://github.com/APConduct/lenv",
    license = "MIT"
 }
 dependencies = {

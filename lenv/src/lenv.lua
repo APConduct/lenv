@@ -1,4 +1,8 @@
+--- Cross-platform .env file parser for Lua
+
 -- lenv.lua - Cross-platform .env file parser for Lua
+
+
 
 
 local lenv = {}
@@ -127,11 +131,16 @@ function lenv.load(filepath)
     if not content then
         return nil, "Could not read file content from '" .. filepath .. "'"
     end
-    ---@diagnostic disable-next-line: return-type-mismatch
-    return lenv.parse(content)
+
+    local parsed, warnings = lenv.parse(content)
+    if not parsed then
+        -- lenv.parse returns nil, {errors} on failure
+        return nil, warnings or "Unknown parse error"
+    end
+    return parsed, warnings or {}
 end
 
---- Enxport environment variables (using the most practical approach)
+--- Export environment variables (using the most practical approach)
 --- This function generates shell scripts and instructions since lua cannot directly modify the parent shell's environment variables
 ---@param parsed_env table|any The parsed environment variables
 ---@param options table|nil Options for enxport behavior
