@@ -1,7 +1,7 @@
 -- lenv/cli.lua
 -- CLI wrapper for lenv: prints export/set lines for shell eval integration
 
-local env = require("lenv.src.lenv")
+local env = require("lenv")
 
 -- Usage: lua lenv/cli.lua [path/to/.env]
 local filepath = arg[1] or ".env"
@@ -14,10 +14,8 @@ end
 
 -- Optionally print warnings to stderr
 if warnings and #warnings > 0 then
-    if type(warnings) == "table" then
-        for _, warning in ipairs(warnings) do
-            io.stderr:write("Warning: " .. warning .. "\n")
-        end
+    for _, warning in ipairs(type(warnings) == "table" and warnings or {}) do
+        io.stderr:write("Warning: " .. warning .. "\n")
     end
 end
 
